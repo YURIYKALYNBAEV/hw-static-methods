@@ -2,6 +2,37 @@ import java.time.LocalDate;
 
 public class Main {
 
+    public static void main(String[] args) {
+        task1();
+        task2();
+        task3();
+    }
+
+    public static void task1() {
+        // Задача №1
+        System.out.println("Задача №1");
+        int year = 2021;
+        checkYear(year);
+        System.out.println();
+    }
+
+    public static void task2() {
+        // Задача №2
+        System.out.println("Задача №2");
+        byte clientOS = 1;
+        int yearOfRelease = 2021;
+        checkOSAndYear(clientOS, yearOfRelease);
+        System.out.println();
+    }
+
+    public static void task3() {
+        System.out.println("Задача №3");
+        int deliveryDistance = 95;
+        int totalDeliveryDays = deliveryDays(deliveryDistance);
+        printTotalDeliveryDays(totalDeliveryDays);
+        System.out.println();
+    }
+
     public static void checkYear(int controlYear) {
         if (controlYear % 4 != 0 || controlYear % 100 == 0 && controlYear % 400 != 0) {
             System.out.println(controlYear + " год не является високосным");
@@ -30,37 +61,27 @@ public class Main {
         }
     }
 
-    public static void calculateDelivery(int distance) {
-        int deliveryTime = 1;
+    public static int deliveryDays(int distance) {
+        int deliveryDays = 1;
 
         if (distance <= 20) {
-            System.out.println("Потребуется дней: " + deliveryTime);
-        } else if (distance > 20 && distance <= 60) {
-            deliveryTime += 1;
-            System.out.println("Потребуется дней: " + deliveryTime);
-        } else if (distance > 60 && distance <= 100) {
-            deliveryTime += 2;
-            System.out.println("Потребуется дней: " + deliveryTime);
-        } else if (distance > 100) {
-            System.out.println("Свыше 100 км доставки нет!");
+            return deliveryDays;
+        } else if (distance <= 60) {
+            deliveryDays += 1;
+            return deliveryDays;
+        } else if (distance <= 100) {
+            deliveryDays += 2;
+            return deliveryDays;
+        } else {
+            return 0;
         }
     }
 
-    public static void main(String[] args) {
-
-        // Задача №1
-        System.out.println("Задача №1");
-        int year = 2021;
-        checkYear(year);
-        // Задача №2
-        System.out.println("Задача №2");
-        byte clientOS = 1;
-        int yearOfRelease = 2021;
-        checkOSAndYear(clientOS, yearOfRelease);
-        // Задача №3
-        System.out.println("Задача №3");
-        int deliveryDistance = 95;
-        calculateDelivery(deliveryDistance);
-
+    public static void printTotalDeliveryDays(int totalDays) {
+        if (totalDays == 0) {
+            System.out.println("Свыше 100 км доставки нет!");
+        } else {
+            System.out.println("Потребуется дней: " + totalDays);
+        }
     }
 }
