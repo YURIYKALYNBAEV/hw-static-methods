@@ -28,7 +28,7 @@ public class Main {
     public static void task3() {
         System.out.println("Задача №3");
         int deliveryDistance = 95;
-        int totalDeliveryDays = deliveryDays(deliveryDistance);
+        int totalDeliveryDays = calculateDeliveryDays(deliveryDistance);
         printTotalDeliveryDays(totalDeliveryDays);
         System.out.println();
     }
@@ -61,7 +61,7 @@ public class Main {
         }
     }
 
-    public static int deliveryDays(int distance) {
+    public static int calculateDeliveryDays(int distance) {
         int deliveryDays = 1;
 
         if (distance <= 20) {
